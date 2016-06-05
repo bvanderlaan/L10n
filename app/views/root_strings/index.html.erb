@@ -1,29 +1,37 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Listing Root Strings</h1>
-
-<table>
-  <thead>
-    <tr>
-      <th>String</th>
-      <th>Comment</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @root_strings.each do |root_string| %>
-      <tr>
-        <td><%= root_string.string %></td>
-        <td><%= root_string.comment %></td>
-        <td><%= link_to 'Show', root_string %></td>
-        <td><%= link_to 'Edit', edit_root_string_path(root_string) %></td>
-        <td><%= link_to 'Destroy', root_string, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
-<br>
-
-<%= link_to 'New Root string', new_root_string_path %>
+<h2>Translated Strings</h2>
+<div id="welcome">
+  <div>
+    <p>
+      Here you will find all the stings which we have already translated.
+      Select one that is closest to the one you need and see if it has
+      existing translations for you to use.
+    </p>
+  </div>
+  <div>
+    <p>
+      If the string you need does not exist please add it to the database
+      when you have translations for it.
+    </p>
+    <%= link_to 'Add New String', new_root_string_path %>
+  </div>
+  <div style="clear: both;"></div>
+</div>
+<hr />
+<div id="strings">
+  <% @root_strings.each do |root_string| %>
+    <div class="string_card">
+      <p><%= link_to root_string.string, root_string %></p>
+      <% unless root_string.comment.blank? and root_string.TranslatedString.count == 0 %>
+      <hr/>
+      <% end %>
+      <% unless root_string.comment.blank? %>
+      <p><label>Comment:</label> <%= root_string.comment %></p>
+      <% end %>
+      <% root_string.TranslatedString.each do |translated_string| %>
+        <span><%= translated_string.language.langname %></span>
+      <% end %>
+    </div>
+  <% end %>
+</div>

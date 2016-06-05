@@ -1,3 +1,68 @@
 // Place all the styles related to the RootStrings controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+#welcome {
+	margin-bottom: 20px;
+}
+
+#welcome div:not(:last-child) {
+	float: left;
+	width: 40%;
+	margin-right: 10px;
+}
+
+#welcome a {
+	margin-left: auto;
+	margin-right: auto;
+	display: block;
+	width: 95px;
+	text-decoration: underline;
+}
+
+h2 {
+	margin-bottom: 0px;
+}
+
+#strings {
+	margin: 10px auto 10px auto;
+	width: 90%
+}
+
+#strings .string_card {
+	width: 100%;
+	background-color: #F2F2F2;
+	border: 1px;
+	border-color: #8E8E8E;
+	border-radius: 5px;
+	border-style: solid;
+	padding: 5px;
+	margin-top: 5px;
+	margin-bottom: 5px;
+}
+
+#strings .string_card p {
+	margin-top: 2px;
+}
+
+#strings .string_card p:first-child {
+	margin-bottom: 2px;
+}
+
+#strings .string_card p a {
+	font-size: 13pt;
+}
+
+#strings .string_card span {
+	border: 1px;
+	background-color: #54638C;
+	border-color: #8E8E8E;
+	border-radius: 5px;
+	border-style: solid;
+	padding: 2px;
+	color: #FFFFFF;
+}
+
+#strings .string_card p label {
+	font-weight: bold;
+}
