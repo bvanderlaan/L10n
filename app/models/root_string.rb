@@ -1,3 +1,3 @@
 class RootString < ActiveRecord::Base
-	has_many :translatedstring
+	has_many :TranslatedString, dependent: :destroy
 end
