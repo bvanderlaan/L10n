@@ -19,6 +19,7 @@
   <div style="clear: both;"></div>
 </div>
 <hr />
+<% if @root_strings.count > 0 %>
 <div id="strings">
   <% @root_strings.each do |root_string| %>
     <div class="string_card">
@@ -32,6 +33,19 @@
       <% root_string.translated_string.each do |translated_string| %>
         <span><%= translated_string.language.langname %></span>
       <% end %>
+    </div>
+  <% end %>
+  <% else %>
+    <div id="no_strings_message">
+      <div>
+        <%= image_tag 'logo.png', size: "100", id: 'no_strings_message_logo_img' %>
+      </div>
+      <div>
+        <h3>No translated strings exist yet</h3>
+        <p>Feel free to start adding any strings you have translations for.</p>
+        <%= link_to 'Add New String', new_root_string_path %>
+      </div>
+      <div style="clear: both;"></div>
     </div>
   <% end %>
 </div>
