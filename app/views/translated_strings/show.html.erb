@@ -12,12 +12,12 @@
 
 <p>
   <strong>Rootstring:</strong>
-  <%= @translated_string.rootstring %>
+  <%= @translated_string.root_string.string %>
 </p>
 
 <p>
   <strong>Language:</strong>
-  <%= @translated_string.language %>
+  <%= @translated_string.language.langname %>
 </p>
 
 <%= link_to 'Edit', edit_translated_string_path(@translated_string) %> |

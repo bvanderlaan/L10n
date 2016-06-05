@@ -18,8 +18,8 @@
       <tr>
         <td><%= translated_string.translation %></td>
         <td><%= translated_string.comment %></td>
-        <td><%= translated_string.rootstring %></td>
-        <td><%= translated_string.language %></td>
+        <td><%= translated_string.root_string.string %></td>
+        <td><%= translated_string.language.langname %></td>
         <td><%= link_to 'Show', translated_string %></td>
         <td><%= link_to 'Edit', edit_translated_string_path(translated_string) %></td>
         <td><%= link_to 'Destroy', translated_string, method: :delete, data: { confirm: 'Are you sure?' } %></td>
