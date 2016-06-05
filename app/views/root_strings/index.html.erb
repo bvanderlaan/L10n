@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Root Strings</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>String</th>
+      <th>Comment</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @root_strings.each do |root_string| %>
+      <tr>
+        <td><%= root_string.string %></td>
+        <td><%= root_string.comment %></td>
+        <td><%= link_to 'Show', root_string %></td>
+        <td><%= link_to 'Edit', edit_root_string_path(root_string) %></td>
+        <td><%= link_to 'Destroy', root_string, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Root string', new_root_string_path %>

@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>String:</strong>
+  <%= @root_string.string %>
+</p>
+
+<p>
+  <strong>Comment:</strong>
+  <%= @root_string.comment %>
+</p>
+
+<%= link_to 'Edit', edit_root_string_path(@root_string) %> |
+<%= link_to 'Back', root_strings_path %>

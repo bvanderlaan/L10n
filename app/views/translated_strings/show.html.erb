@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Translation:</strong>
+  <%= @translated_string.translation %>
+</p>
+
+<p>
+  <strong>Comment:</strong>
+  <%= @translated_string.comment %>
+</p>
+
+<p>
+  <strong>Rootstring:</strong>
+  <%= @translated_string.rootstring %>
+</p>
+
+<p>
+  <strong>Language:</strong>
+  <%= @translated_string.language %>
+</p>
+
+<%= link_to 'Edit', edit_translated_string_path(@translated_string) %> |
+<%= link_to 'Back', translated_strings_path %>

@@ -1,0 +1,33 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Translated Strings</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Translation</th>
+      <th>Comment</th>
+      <th>Rootstring</th>
+      <th>Language</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @translated_strings.each do |translated_string| %>
+      <tr>
+        <td><%= translated_string.translation %></td>
+        <td><%= translated_string.comment %></td>
+        <td><%= translated_string.rootstring %></td>
+        <td><%= translated_string.language %></td>
+        <td><%= link_to 'Show', translated_string %></td>
+        <td><%= link_to 'Edit', edit_translated_string_path(translated_string) %></td>
+        <td><%= link_to 'Destroy', translated_string, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Translated string', new_translated_string_path %>
