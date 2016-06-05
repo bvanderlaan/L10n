@@ -1,1 +1,1 @@
-json.extract! @language, :id, :lang, :langcode, :created_at, :updated_at
+json.extract! @language, :id, :langname, :langcode, :created_at, :updated_at

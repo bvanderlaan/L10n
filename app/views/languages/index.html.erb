@@ -14,7 +14,7 @@
   <tbody>
     <% @languages.each do |language| %>
       <tr>
-        <td><%= language.lang %></td>
+        <td><%= language.langname %></td>
         <td><%= language.langcode %></td>
         <td><%= link_to 'Show', language %></td>
         <td><%= link_to 'Edit', edit_language_path(language) %></td>
