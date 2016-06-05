@@ -23,13 +23,13 @@
   <% @root_strings.each do |root_string| %>
     <div class="string_card">
       <p><%= link_to root_string.string, root_string %></p>
-      <% unless root_string.comment.blank? and root_string.TranslatedString.count == 0 %>
+      <% unless root_string.comment.blank? and root_string.translated_string.count == 0 %>
       <hr/>
       <% end %>
       <% unless root_string.comment.blank? %>
       <p><label>Comment:</label> <%= root_string.comment %></p>
       <% end %>
-      <% root_string.TranslatedString.each do |translated_string| %>
+      <% root_string.translated_string.each do |translated_string| %>
         <span><%= translated_string.language.langname %></span>
       <% end %>
     </div>
