@@ -4,7 +4,7 @@ class RootStringsController < ApplicationController
   # GET /root_strings
   # GET /root_strings.json
   def index
-    @root_strings = RootString.all
+    @root_strings = RootString.order("lower(string)").all
   end
 
   # GET /root_strings/1
