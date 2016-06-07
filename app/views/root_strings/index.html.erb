@@ -28,7 +28,7 @@
       <hr/>
       <% end %>
       <% unless root_string.comment.blank? %>
-      <p><label>Comment:</label> <%= root_string.comment %></p>
+      <p><em><%= root_string.comment %></em></p>
       <% end %>
       <% root_string.translated_string.each do |translated_string| %>
         <span><%= translated_string.language.langname %></span>
