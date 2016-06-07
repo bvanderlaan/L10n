@@ -1,14 +1,30 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>String:</strong>
-  <%= @root_string.string %>
-</p>
+<div id="string_details">
+	<strong>Source Text</strong>
+	<p>
+	  <%= @root_string.string %>
+	</p>
 
-<p>
-  <strong>Comment:</strong>
-  <%= @root_string.comment %>
-</p>
+	<% unless @root_string.comment.blank? %>
+   	    <strong>Comment</strong>
+		<p>
+		  <%= @root_string.comment %>
+		</p>
+	<% end %>
+
+	<% @root_string.translated_string.each do |translated_string| %>
+        <strong><%= translated_string.language.langname %> translation</strong>
+        <p>
+        	<%= translated_string.translation %>
+        </p>
+        <strong><%= translated_string.language.langname %> translator comments</strong>
+        <p>
+        	<%= translated_string.comment %>
+        </p>
+     <% end %>
+</div>
+
 
 <%= link_to 'Edit', edit_root_string_path(@root_string) %> |
 <%= link_to 'Delete', @root_string, method: :delete, data: { confirm: "Are you sure?\nThis will delete all translations for this string." } %> |
