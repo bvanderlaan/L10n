@@ -25,10 +25,10 @@
     <div class="string_card">
       <p><%= link_to root_string.string, root_string %></p>
       <% unless root_string.comment.blank? and root_string.translated_string.count == 0 %>
-      <hr/>
+        <hr/>
       <% end %>
       <% unless root_string.comment.blank? %>
-      <p><em><%= root_string.comment %></em></p>
+        <p><em><%= root_string.comment %></em></p>
       <% end %>
       <% root_string.translated_string.each do |translated_string| %>
         <span><%= translated_string.language.langname %></span>
