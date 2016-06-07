@@ -93,3 +93,9 @@ h2 {
 	margin-left: 10px;
 	margin-top: 5px;
 }
+
+#string_details p:not(:first-of-type):not(#context) {
+	border-width: 1px;
+	border-style: solid;
+	padding: 5px;
+}

@@ -8,9 +8,17 @@
 
 	<% unless @root_string.comment.blank? %>
    	    <strong>Comment</strong>
-		<p>
+		<p id="context">
 		  <%= @root_string.comment %>
 		</p>
+	<% end %>
+
+	<% unless @root_string.translated_string.count > 0 %>
+		<div>
+			<p>
+				There are no translations for this string.  <%= link_to 'Would you care to add any?', edit_root_string_path(@root_string) %>
+			</p>
+		</div>
 	<% end %>
 
 	<% @root_string.translated_string.each do |translated_string| %>
