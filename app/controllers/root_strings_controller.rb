@@ -72,6 +72,6 @@ class RootStringsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def root_string_params
-      params.require(:root_string).permit(:string, :comment, :translated_strings_attributes => [:translation, :comment, :language_id])
+      params.require(:root_string).permit(:string, :comment, :translated_strings_attributes => [:translation, :comment, :language_id, :id])
     end
 end

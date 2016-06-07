@@ -22,6 +22,7 @@
 
   <%= f.fields_for :translated_strings do |translated_string| %>
     <%= translated_string.hidden_field :language_id %>
+    <%= translated_string.hidden_field :id %>
     <div class="field">
     <%= translated_string.label :translation, "#{translated_string.object.language.langname} Translation" %><br>
     <%= translated_string.text_field :translation %>
