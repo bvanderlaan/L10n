@@ -1,5 +1,4 @@
 Rails.application.routes.draw do
-  resources :translated_strings
   resources :languages
   resources :root_strings
   # The priority is based upon order of creation: first created -> highest priority.
