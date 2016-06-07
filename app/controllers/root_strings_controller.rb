@@ -48,7 +48,7 @@ class RootStringsController < ApplicationController
   def update
     respond_to do |format|
       if @root_string.update(root_string_params)
-        format.html { redirect_to @root_string, notice: 'Root string was successfully updated.' }
+        format.html { redirect_to @root_string, notice: 'String was successfully updated.' }
         format.json { render :show, status: :ok, location: @root_string }
       else
         format.html { render :edit }
