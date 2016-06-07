@@ -15,6 +15,9 @@ class RootStringsController < ApplicationController
   # GET /root_strings/new
   def new
     @root_string = RootString.new
+    Language.all.each do |lang| 
+      @root_string.translated_strings.build :language => lang
+    end    
   end
 
   # GET /root_strings/1/edit
@@ -69,6 +72,6 @@ class RootStringsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def root_string_params
-      params.require(:root_string).permit(:string, :comment)
+      params.require(:root_string).permit(:string, :comment, :translated_strings_attributes => [:translation, :comment, :language_id])
     end
 end

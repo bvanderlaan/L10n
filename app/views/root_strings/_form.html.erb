@@ -17,8 +17,21 @@
   </div>
   <div class="field">
     <%= f.label :comment %><br>
-    <%= f.text_field :comment %>
+    <%= f.text_field :comment, maxlength: "255" %>
   </div>
+
+  <%= f.fields_for :translated_strings do |translated_string| %>
+    <%= translated_string.hidden_field :language_id %>
+    <div class="field">
+    <%= translated_string.label :translation, "#{translated_string.object.language.langname} Translation" %><br>
+    <%= translated_string.text_field :translation %>
+  </div>
+  <div class="field">
+    <%= translated_string.label :comment, "#{translated_string.object.language.langname} Translator Comments" %><br>
+    <%= translated_string.text_field :comment, maxlength: "255" %>
+  </div>
+  <% end %>
+
   <div class="actions">
     <%= f.submit "Save" %>
   </div>

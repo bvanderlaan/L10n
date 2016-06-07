@@ -13,7 +13,7 @@
 		</p>
 	<% end %>
 
-	<% unless @root_string.translated_string.count > 0 %>
+	<% unless @root_string.translated_strings.count > 0 %>
 		<div>
 			<p>
 				There are no translations for this string.  <%= link_to 'Would you care to add any?', edit_root_string_path(@root_string) %>
@@ -21,7 +21,7 @@
 		</div>
 	<% end %>
 
-	<% @root_string.translated_string.each do |translated_string| %>
+	<% @root_string.translated_strings.each do |translated_string| %>
         <strong><%= translated_string.language.langname %> translation</strong>
         <p>
         	<%= translated_string.translation %>
