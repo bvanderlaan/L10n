@@ -22,6 +22,9 @@ class RootStringsController < ApplicationController
 
   # GET /root_strings/1/edit
   def edit
+    Language.all.each do |lang| 
+      @root_string.translated_strings.build :language => lang unless @root_string.translated_strings.any? { |ts| ts.language == lang }
+    end
   end
 
   # POST /root_strings
