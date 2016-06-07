@@ -20,6 +20,10 @@
 	text-decoration: underline;
 }
 
+#welcome div p {
+	margin-top: 0px;
+}
+
 #no_strings_message {
 	width: 50%;
 	margin-left: auto;
@@ -39,10 +43,6 @@
 
 #no_strings_message #no_strings_message_logo_img {
 	margin-top: 10px;
-}
-
-h2 {
-	margin-bottom: 0px;
 }
 
 #strings {
