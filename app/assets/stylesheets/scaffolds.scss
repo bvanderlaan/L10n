@@ -51,8 +51,19 @@ div {
 
 .field_with_errors {
   padding: 2px;
-  background-color: red;
-  display: table;
+  width: 80%;
+  display: inline-block;
+
+  input {
+    border-width: 3px;
+    border-style: solid;
+    border-color: red;
+    width: 100%;
+  }
+  label {
+    color: red;
+    font-weight: bold;
+  }
 }
 
 #error_explanation {
@@ -78,4 +89,8 @@ div {
     font-size: 12px;
     list-style: square;
   }
+}
+
+input {
+  width: 80%;
 }

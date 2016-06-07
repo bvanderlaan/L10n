@@ -28,7 +28,7 @@ class RootStringsController < ApplicationController
 
     respond_to do |format|
       if @root_string.save
-        format.html { redirect_to @root_string, notice: 'Root string was successfully created.' }
+        format.html { redirect_to @root_string, notice: 'String was successfully added.' }
         format.json { render :show, status: :created, location: @root_string }
       else
         format.html { render :new }
