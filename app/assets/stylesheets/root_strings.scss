@@ -4,30 +4,39 @@
 
 #welcome {
 	margin-bottom: 20px;
-}
 
-#welcome div:not(:last-child) {
-	float: left;
-	width: 40%;
-	margin-right: 10px;
-}
+	div:not(:last-child) {
+		float: left;
+		width: 40%;
+		margin-right: 10px;
+	}
 
-#welcome a {
-	margin-left: auto;
-	margin-right: auto;
-	display: block;
-	width: 95px;
-	text-decoration: underline;
-}
+	a {
+		margin-left: auto;
+		margin-right: auto;
+		display: block;
+		width: 95px;
+		text-decoration: underline;
+	}
 
-#welcome div p {
-	margin-top: 0px;
+	div p {
+		margin-top: 0px;
+	}
 }
 
 #no_strings_message {
 	width: 50%;
 	margin-left: auto;
 	margin-right: auto;
+
+	div:not(:last-child) {
+		float: left;
+		margin-right: 10px;
+	}
+
+	#no_strings_message_logo_img {
+		margin-top: 10px;
+	}
 }
 
 @media screen and (max-width: 1024px) {
@@ -36,66 +45,61 @@
 	}	
 }
 
-#no_strings_message div:not(:last-child) {
-	float: left;
-	margin-right: 10px;
-}
 
-#no_strings_message #no_strings_message_logo_img {
-	margin-top: 10px;
-}
 
 #strings {
 	margin: 10px auto 10px auto;
-	width: 90%
+	width: 90%;
+
+	.string_card {
+		width: 100%;
+		background-color: #F2F2F2;
+		border: 1px;
+		border-color: #8E8E8E;
+		border-radius: 5px;
+		border-style: solid;
+		padding: 5px;
+		margin-top: 5px;
+		margin-bottom: 5px;
+
+		p {
+			margin-top: 2px;
+			margin-bottom: 2px;
+
+			a {
+				font-size: 13pt;
+			}
+
+			label {
+				font-weight: bold;
+			}
+		}
+
+		p:first-child {
+			margin-bottom: 2px;
+		}
+
+		span {
+			border: 1px;
+			background-color: #54638C;
+			border-color: #8E8E8E;
+			border-radius: 5px;
+			border-style: solid;
+			padding: 2px;
+			color: #FFFFFF;
+		}
+	}
 }
 
-#strings .string_card {
-	width: 100%;
-	background-color: #F2F2F2;
-	border: 1px;
-	border-color: #8E8E8E;
-	border-radius: 5px;
-	border-style: solid;
-	padding: 5px;
-	margin-top: 5px;
-	margin-bottom: 5px;
-}
+#string_details {
+	p {
+		margin-left: 10px;
+		margin-top: 5px;
+	}
 
-#strings .string_card p {
-	margin-top: 2px;
-	margin-bottom: 2px;
-}
-
-#strings .string_card p:first-child {
-	margin-bottom: 2px;
-}
-
-#strings .string_card p a {
-	font-size: 13pt;
-}
-
-#strings .string_card span {
-	border: 1px;
-	background-color: #54638C;
-	border-color: #8E8E8E;
-	border-radius: 5px;
-	border-style: solid;
-	padding: 2px;
-	color: #FFFFFF;
-}
-
-#strings .string_card p label {
-	font-weight: bold;
-}
-
-#string_details p {
-	margin-left: 10px;
-	margin-top: 5px;
-}
-
-#string_details p:not(:first-of-type):not(#context) {
-	border-width: 1px;
-	border-style: solid;
-	padding: 5px;
+	p:not(:first-of-type):not(#context) {
+		border-width: 1px;
+		border-style: solid;
+		padding: 5px;
+	}
 }
