@@ -25,11 +25,13 @@
         <strong><%= translated_string.language.langname %> translation</strong>
         <p>
         	<%= translated_string.translation %>
-        </p>
-        <strong><%= translated_string.language.langname %> translator comments</strong>
-        <p>
-        	<%= translated_string.comment %>
-        </p>
+        </p> 
+        <% unless translated_string.comment.blank? %>
+	        <strong><%= translated_string.language.langname %> translator comments</strong>
+	        <p>
+	        	<%= translated_string.comment %>
+	        </p>
+        <% end %>
      <% end %>
 </div>
 
