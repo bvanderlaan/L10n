@@ -24,13 +24,17 @@
     <%= translated_string.hidden_field :language_id %>
     <%= translated_string.hidden_field :id %>
     <div class="field">
-    <%= translated_string.label :translation, "#{translated_string.object.language.langname} Translation" %><br>
-    <%= translated_string.text_field :translation %>
-  </div>
-  <div class="field">
-    <%= translated_string.label :comment, "#{translated_string.object.language.langname} Translator Comments" %><br>
-    <%= translated_string.text_field :comment, maxlength: "255" %>
-  </div>
+
+    <!--name = root_string[translated_strings_attributes][1][id]
+    id = root_string_translated_strings_attributes_1_id -->
+
+      <%= translated_string.label :translation, "#{translated_string.object.language.langname} Translation" %><br>
+      <%= translated_string.text_field :translation, oninput: "" %>
+    </div>
+    <div class="field">
+      <%= translated_string.label :comment, "#{translated_string.object.language.langname} Translator Comments" %><br>
+      <%= translated_string.text_field :comment, maxlength: "255" %>
+    </div>
   <% end %>
 
   <div class="actions">
