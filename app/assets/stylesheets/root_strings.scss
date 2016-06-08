@@ -45,8 +45,6 @@
 	}	
 }
 
-
-
 #strings {
 	margin: 10px auto 10px auto;
 	width: 90%;
@@ -101,5 +99,13 @@
 		border-width: 1px;
 		border-style: solid;
 		padding: 5px;
+	}
+
+	div#left {
+		float: left;
+	}
+
+	div#right {
+		float: right;
 	}
 }

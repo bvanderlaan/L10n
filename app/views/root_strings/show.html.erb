@@ -1,7 +1,17 @@
 <p id="notice"><%= notice %></p>
 
 <div id="string_details">
-	<strong>Source Text</strong>
+	<div>
+		<div id="left">
+			<strong>Source Text</strong>
+		</div>
+		<div id="right">
+			<%= link_to 'Edit', edit_root_string_path(@root_string) %> |
+			<%= link_to 'Delete', @root_string, method: :delete, data: { confirm: "Are you sure?\nThis will delete all translations for this string." } %> |
+			<%= link_to 'Back', root_strings_path %>
+		</div>
+		<div style="clear: both;"></div>
+	</div>
 	<p>
 	  <%= @root_string.string %>
 	</p>
@@ -34,8 +44,3 @@
         <% end %>
      <% end %>
 </div>
-
-
-<%= link_to 'Edit', edit_root_string_path(@root_string) %> |
-<%= link_to 'Delete', @root_string, method: :delete, data: { confirm: "Are you sure?\nThis will delete all translations for this string." } %> |
-<%= link_to 'Back', root_strings_path %>
