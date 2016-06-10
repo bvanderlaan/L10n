@@ -12,12 +12,17 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :langname %><br>
-    <%= f.text_field :langname %>
+    <%= f.label :langname, "Language Name" %><br>
+    <%= f.text_field :langname, 
+                     autofocus: true, 
+                     required: true,
+                     placeholder: "Example: English" %>
   </div>
   <div class="field">
-    <%= f.label :langcode %><br>
-    <%= f.text_field :langcode %>
+    <%= f.label :langcode, "Language Code" %><br>
+    <%= f.text_field :langcode, 
+                     required: true, 
+                     placeholder: "Example: en" %>
   </div>
   <div class="actions">
     <%= f.submit %>
