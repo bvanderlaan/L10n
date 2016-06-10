@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  resources :languages
+  resources :languages, except: [:show]
   resources :root_strings
   get '*path' => redirect('/404.html')
   # The priority is based upon order of creation: first created -> highest priority.
