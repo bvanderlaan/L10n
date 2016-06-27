@@ -94,8 +94,12 @@
 			}
 		}
 
-		p:first-child {
+		p:first-of-type {
 			margin-bottom: 2px;
+		}
+
+		p:last-of-type {
+			margin-bottom: 6px;
 		}
 
 		span {
