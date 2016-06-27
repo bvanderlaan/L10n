@@ -122,11 +122,11 @@
 		padding: 5px;
 	}
 
-	div#left {
+	div:first-of-type > div:first-of-type {
 		float: left;
 	}
 
-	div#right {
+	div:first-of-type > div:last-of-type {
 		float: right;
 	}
 }
