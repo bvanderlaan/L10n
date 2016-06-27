@@ -2,10 +2,31 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+#string_details div:first-of-type:before,
+#string_details div:first-of-type:after,
+#no_strings_message:before,
+#no_strings_message:after,
+#welcome:before,
+#welcome:after {
+	/**
+	* Micro clearfix hack for Main Structure.
+	* See: http://nicolasgallagher.com/micro-clearfix-hack/
+	*/
+
+	content: '';
+	display: table;
+}
+
+#string_details div:first-of-type:after,
+#no_strings_message:after,
+#welcome:after {
+	clear: both;
+}
+
 #welcome {
 	margin-bottom: 20px;
 
-	div:not(:last-child) {
+	div {
 		float: left;
 		width: 40%;
 		margin-right: 10px;
