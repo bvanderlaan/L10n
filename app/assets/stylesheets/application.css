@@ -13,6 +13,9 @@
  *= require_tree .
  *= require_self
  */
+body {
+	font-size: 100%;
+}
 
  #container {
 	min-height: 100%;
@@ -81,7 +84,16 @@
 /* =Headings
 -------------------------------------------------------------- */
 h1 {
-	line-height: 1em;
+	line-height: 1.1em;
+	font-size: 1.6em;
+}
+
+h2 {
+	font-size: 1.5em;
+}
+
+h3 {
+	font-size: 1.3em;
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -90,9 +102,14 @@ h1, h2, h3, h4, h5, h6 {
 
 /* =Typeface
 -------------------------------------------------------------- */
+h1 > a {
+	font-size: 1.6em;
+}
+
 a,
 p {
 	font-family: 'Droid Serif',Georgia,Cambria,'Times New Roman',Times,serif;
+	font-size: 1em;
 }
 
 
