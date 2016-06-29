@@ -2,6 +2,9 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+@import 'bootstrap-sprockets';
+@import 'bootstrap';
+
 #string_details div:first-of-type:before,
 #string_details div:first-of-type:after,
 #no_strings_message:before,
@@ -103,13 +106,9 @@
 		}
 
 		span {
-			border: 1px;
-			background-color: #54638C;
-			border-color: #8E8E8E;
-			border-radius: 5px;
-			border-style: solid;
-			padding: 2px;
-			color: #FFFFFF;
+			@extend .btn;
+			@extend .btn-info;
+			@extend .disabled;
 		}
 	}
 }
