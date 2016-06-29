@@ -105,9 +105,9 @@
 		}
 
 		span {
-			@extend .btn;
-			@extend .btn-primary;
-			@extend .disabled;
+			@extend .label;
+			@extend .label-info;
+			font-size: 1.5em;
 		}
 	}
 }
