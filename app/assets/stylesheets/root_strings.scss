@@ -102,11 +102,21 @@
 			margin-bottom: 6px;
 		}
 
-		span {
-			@extend .label;
-			@extend .label-info;
-			display: inline-block;
-			font-size: 15px;
+		div {
+			@extend .container-fluid;
+			margin: 0;
+			padding: 0;
+
+			span {
+				@extend .label;
+				@extend .label-info;
+				@extend .col-md-2;
+				@extend .col-sm-3;
+				@extend .col-xs-5;
+				display: inline-block;
+				font-size: 11px;
+				margin: 2px;
+			}
 		}
 
 		label {

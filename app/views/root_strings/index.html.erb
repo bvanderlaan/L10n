@@ -28,9 +28,11 @@
         <% unless root_string.comment.blank? %>
           <p><em><%= root_string.comment %></em></p>
         <% end %>
-        <% root_string.translated_strings.each do |translated_string| %>
-          <span><%= translated_string.language.langname %></span>
-        <% end %>
+        <div>
+          <% root_string.translated_strings.each do |translated_string| %>
+            <span><%= translated_string.language.langname %></span>
+          <% end %>
+        </div>
         <% if root_string.translated_strings.empty? %>
           <label>This string has no translations</label>
         <% end %>
