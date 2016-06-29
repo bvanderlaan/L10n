@@ -73,31 +73,29 @@
 	width: 90%;
 
 	.string_card {
-		width: 100%;
-		background-color: #F2F2F2;
-		border: 1px;
-		border-color: #8E8E8E;
-		border-radius: 5px;
-		border-style: solid;
-		padding: 5px;
 		margin-top: 5px;
 		margin-bottom: 5px;
 
+		a {
+			@extend .btn;
+			@extend .btn-block;
+			@extend .btn-default;
+			text-align: left;
+			min-height: 70px;
+		}
+
+		hr {
+			margin-top: 10px;
+			margin-bottom: 5px;
+		}
+
 		p {
 			margin-top: 2px;
-			margin-bottom: 2px;
-
-			a {
-				font-size: 13pt;
-			}
-
-			label {
-				font-weight: bold;
-			}
 		}
 
 		p:first-of-type {
 			margin-bottom: 2px;
+			font-size: 18px;
 		}
 
 		p:last-of-type {
@@ -107,7 +105,14 @@
 		span {
 			@extend .label;
 			@extend .label-info;
-			font-size: 1.5em;
+			display: inline-block;
+			font-size: 15px;
+		}
+
+		label {
+			@extend .label;
+			@extend .label-danger;
+			font-size: 13px;
 		}
 	}
 }
