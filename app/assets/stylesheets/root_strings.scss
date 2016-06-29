@@ -91,6 +91,8 @@
 
 		p {
 			margin-top: 2px;
+			overflow: hidden;
+			text-overflow: ellipsis;
 		}
 
 		p:first-of-type {
