@@ -22,6 +22,11 @@ body {
 	position: relative;
 }
 
+hr {
+	margin: 20px;
+	border-color: #54638C;
+}
+
 /* =Header
 -------------------------------------------------------------- */
 #header {
