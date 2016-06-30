@@ -33,6 +33,12 @@
             <span><%= translated_string.language.langname %></span>
           <% end %>
         </div>
+        <div>
+          <% root_string.translated_strings.each do |translated_string| %>
+            <span><%= translated_string.language.langcode %></span>
+          <% end %>
+        </div>
+        <div></div>
         <% if root_string.translated_strings.empty? %>
           <label>This string has no translations</label>
         <% end %>
