@@ -5,6 +5,8 @@
 @import 'bootstrap-sprockets';
 @import 'bootstrap';
 
+#new_string_header:before,
+#new_string_header:after,
 #string_details > div:first-of-type:before,
 #string_details > div:first-of-type:after,
 #no_strings_message:before,
@@ -20,6 +22,7 @@
 	display: table;
 }
 
+#new_string_header:after,
 #string_details > div:first-of-type:after,
 #no_strings_message:after,
 #welcome:after {
@@ -180,10 +183,8 @@
 			@extend .btn;
 			@extend .btn-danger;
 			@extend .btn-sm;
-		}
-	
+		}	
 	}
-	
 
 	#no_translations {
 		p {
@@ -199,6 +200,48 @@
 			margin-left: auto;
 			margin-right: auto;
 		}
+	}
+}
+
+#new_string_header {
+	h2 {
+		float: left;
+	}
+
+	#new_string_help_button {
+		@extend .btn;
+		@extend .btn-info;
+		float: right;
+		margin-top: 20px;
+		margin-bottom: 5px;
+
+		span:first-of-type {
+			@extend .glyphicon;
+			@extend .glyphicon-question-sign;
+		}
+		span:last-of-type {
+			margin-left: 5px;
+		}
+	}
+
+	@media screen and (max-width: 427px) {
+		#new_string_help_button {
+			float: left;
+			margin-top: 0px;
+		}
+	}
+}
+
+#help_text {
+	@extend .collapse;
+
+	a {
+		@extend .btn;
+		@extend .btn-primary;
+		display: inherit;
+		width: 250px;
+		margin-left: auto;
+		margin-right: auto;
 	}
 }
 
