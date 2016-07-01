@@ -18,15 +18,14 @@
 	<% unless @root_string.comment.blank? %>
    	    <strong>Comment</strong>
 		<p id="context">
-		  <%= @root_string.comment %>
+		  <em><%= @root_string.comment %></em>
 		</p>
 	<% end %>
 
 	<% unless @root_string.translated_strings.count > 0 %>
-		<div>
-			<p>
-				There are no translations for this string.  <%= link_to 'Would you care to add any?', edit_root_string_path(@root_string) %>
-			</p>
+		<div id="no_translations">
+			<p>There are no translations for this phrase.</p>
+			<%= link_to 'Would you care to add any?', edit_root_string_path(@root_string) %>
 		</div>
 	<% end %>
 

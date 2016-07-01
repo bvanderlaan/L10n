@@ -5,6 +5,8 @@
 @import 'bootstrap-sprockets';
 @import 'bootstrap';
 
+#string_details > div:first-of-type:before,
+#string_details > div:first-of-type:after,
 #no_strings_message:before,
 #no_strings_message:after,
 #welcome:before,
@@ -18,6 +20,7 @@
 	display: table;
 }
 
+#string_details > div:first-of-type:after,
 #no_strings_message:after,
 #welcome:after {
 	clear: both;
@@ -166,6 +169,22 @@
 
 	div:first-of-type > div:last-of-type {
 		float: right;
+	}
+
+	#no_translations {
+		p {
+			text-align: center;
+			@extend .text-danger;
+		}
+
+		a {
+			@extend .btn;
+			@extend .btn-primary;
+			display: inherit;
+			width: 250px;
+			margin-left: auto;
+			margin-right: auto;
+		}
 	}
 }
 
