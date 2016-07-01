@@ -1,5 +1,7 @@
-<% unless notice.blank? %>
-<p id="notice"><%= notice %></p>
+<% unless flash.empty? %>
+  <% flash.each do |level, msg| %>
+    <%= content_tag :p, msg, class: "alert alert-#{level}" %>
+  <% end %>
 <% end %>
 
 <h2>Translated Strings</h2>

@@ -36,14 +36,6 @@ hr {
 	border-color: $header-blue;
 }
 
-
-/* =Notices
--------------------------------------------------------------- */
-#notice {
-	@extend .alert;
-	@extend .alert-success;
-}
-
 /* =Header
 -------------------------------------------------------------- */
 #header {
