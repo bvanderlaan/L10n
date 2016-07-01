@@ -160,18 +160,13 @@
 		margin-top: 5px;
 	}
 
-	p:not(:first-of-type):not(#context) {
-		border-width: 1px;
-		border-style: solid;
-		padding: 5px;
-	}
-
 	div:first-of-type > div:first-of-type {
 		float: left;
 	}
 
 	div:first-of-type > div:last-of-type {
 		float: right;
+		margin-top: 20px;
 
 		a:first-of-type {
 			@extend .btn;
@@ -199,6 +194,30 @@
 			width: 250px;
 			margin-left: auto;
 			margin-right: auto;
+		}
+	}
+
+	#phrase_translations { 
+		margin-bottom: 20px;
+
+		div {
+			margin: -5px;
+			padding: 5px;
+
+			p {
+				border-width: 1px;
+				border-style: solid;
+				padding: 5px;
+				background-color: #FFFFFF;
+			}
+		}
+
+		div:nth-of-type(even) {
+			padding: 10px;
+		}
+
+		div:nth-of-type(odd) {
+			background-color: #C9D9FF;
 		}
 	}
 }

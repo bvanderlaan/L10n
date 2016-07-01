@@ -3,7 +3,7 @@
 <div id="string_details">
 	<div>
 		<div>
-			<strong>Source Text</strong>
+			<h2>Source Text</h2>
 		</div>
 		<div>
 			<%= link_to 'Edit', edit_root_string_path(@root_string) %>
@@ -28,16 +28,20 @@
 		</div>
 	<% end %>
 
+	<div id="phrase_translations">
 	<% @root_string.translated_strings.each do |translated_string| %>
-        <strong><%= translated_string.language.langname %> translation</strong>
-        <p>
-        	<%= translated_string.translation %>
-        </p> 
-        <% unless translated_string.comment.blank? %>
-	        <strong><%= translated_string.language.langname %> translator comments</strong>
-	        <p>
-	        	<%= translated_string.comment %>
-	        </p>
-        <% end %>
+		<div>
+			<strong><%= translated_string.language.langname %> translation</strong>
+			<p>
+				<%= translated_string.translation %>
+			</p> 
+			<% unless translated_string.comment.blank? %>
+				<strong><%= translated_string.language.langname %> translator comments</strong>
+				<p>
+					<%= translated_string.comment %>
+				</p>
+			<% end %>
+		</div>
      <% end %>
+	 </div>
 </div>
