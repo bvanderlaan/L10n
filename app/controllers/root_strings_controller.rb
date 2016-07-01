@@ -34,7 +34,7 @@ class RootStringsController < ApplicationController
 
     respond_to do |format|
       if @root_string.save
-        format.html { redirect_to @root_string, notice: 'String was successfully added.' }
+        format.html { redirect_to @root_string, notice: 'A new string was successfully added.'  }
         format.json { render :show, status: :created, location: @root_string }
       else
         format.html { render :new }
@@ -48,7 +48,7 @@ class RootStringsController < ApplicationController
   def update
     respond_to do |format|
       if @root_string.update(root_string_params)
-        format.html { redirect_to @root_string, notice: 'String was successfully updated.' }
+        format.html { redirect_to @root_string, notice: 'A string was successfully updated.' }
         format.json { render :show, status: :ok, location: @root_string }
       else
         format.html { render :edit }
@@ -62,7 +62,7 @@ class RootStringsController < ApplicationController
   def destroy
     @root_string.destroy
     respond_to do |format|
-      format.html { redirect_to root_strings_url, notice: 'Root string was successfully destroyed.' }
+      format.html { redirect_to root_strings_url, notice: 'A string was successfully deleted.' }
       format.json { head :no_content }
     end
   end
