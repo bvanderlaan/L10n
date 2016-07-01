@@ -6,9 +6,8 @@
 			<strong>Source Text</strong>
 		</div>
 		<div>
-			<%= link_to 'Edit', edit_root_string_path(@root_string) %> |
-			<%= link_to 'Delete', @root_string, method: :delete, data: { confirm: "Are you sure?\nThis will delete all translations for this string." } %> |
-			<%= link_to 'Back', root_strings_path %>
+			<%= link_to 'Edit', edit_root_string_path(@root_string) %>
+			<%= link_to 'Delete', @root_string, method: :delete, data: { confirm: "Are you sure?\nThis will delete all translations for this string." } %>
 		</div>
 	</div>
 	<p>

@@ -169,7 +169,21 @@
 
 	div:first-of-type > div:last-of-type {
 		float: right;
+
+		a:first-of-type {
+			@extend .btn;
+			@extend .btn-primary;
+			@extend .btn-sm;	
+		}
+
+		a:last-of-type {
+			@extend .btn;
+			@extend .btn-danger;
+			@extend .btn-sm;
+		}
+	
 	}
+	
 
 	#no_translations {
 		p {
