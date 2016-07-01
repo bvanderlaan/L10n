@@ -1,22 +1,24 @@
 <p id="notice"><%= notice %></p>
 
-<h2>Languages</h2>
-
-<p>
-  Here is a list of all the languages your database supports.
-</p>
-<p>
-  When you add new strings you will see an entry for each of these
-  languages for you to proivde a translation. If your never translate
-  your application or document into one of these languages feel free to
-  delete it to have it removed from the new/edit word or phrase form. 
-  <strong>Be carful however as deleting a language will purge any 
-  translation in said language from your database</strong>.
-</p>
-<p>
-  If a language you typically tranlsate into is missing from the below
-  list you can <%= link_to 'Add a New Language', new_language_path %>.
-</p>
+<div id="languages_header">
+  <h2>Languages</h2>
+  <%= link_to 'Add a New Language', new_language_path %>
+</div>
+<div id="languages_welcome_text">
+  <p>
+    Here is a list of all the languages your database supports.
+  </p>
+  <p>
+    When you add new strings you will see an entry for each of these
+    languages for you to proivde a translation. If your never translate
+    your application or document into one of these languages feel free to
+    delete it to have it removed from the new/edit word or phrase form.
+  </p>
+  <p> 
+    <strong>Be carful however as deleting a language will purge any 
+    translation in said language from your database</strong>.
+  </p>
+</div>
 
 <hr />
 

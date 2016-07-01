@@ -1,3 +1,38 @@
 // Place all the styles related to the Languages controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+@import 'bootstrap-sprockets';
+@import 'bootstrap';
+
+#languages_header:before,
+#languages_header:after {
+	/**
+	* Micro clearfix hack for Main Structure.
+	* See: http://nicolasgallagher.com/micro-clearfix-hack/
+	*/
+
+	content: '';
+	display: table;
+}
+#languages_header:after {
+	clear: both;
+}
+
+#languages_header {
+    h2 {
+        float: left;
+    }
+    a {
+        float: right;
+        @extend .btn;
+        @extend .btn-primary;
+        margin-top: 20px;
+    }
+}
+#languages_welcome_text {
+
+    strong {
+        @extend .text-warning;
+    }
+}
