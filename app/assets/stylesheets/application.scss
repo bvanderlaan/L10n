@@ -14,7 +14,9 @@
  *= require_self
  */
  
-@import "colours";
+@import 'bootstrap-sprockets';
+@import 'bootstrap';
+@import 'colours';
 
 $footer-height: 60px;
 $font-family: 'Droid Serif',Georgia,Cambria,'Times New Roman',Times,serif;
@@ -32,6 +34,14 @@ body {
 hr {
 	margin: 20px;
 	border-color: $header-blue;
+}
+
+
+/* =Notices
+-------------------------------------------------------------- */
+#notice {
+	@extend .alert;
+	@extend .alert-success;
 }
 
 /* =Header
