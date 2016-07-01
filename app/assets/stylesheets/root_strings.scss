@@ -60,8 +60,13 @@
 		margin-right: 10px;
 	}
 
-	#no_strings_message_logo_img {
+	img {
 		margin-top: 10px;
+	}
+
+	a {
+		@extend .btn;
+		@extend .btn-primary;
 	}
 }
 
