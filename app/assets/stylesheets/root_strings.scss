@@ -4,6 +4,7 @@
 
 @import 'bootstrap-sprockets';
 @import 'bootstrap';
+@import 'colours';
 
 #new_string_header:before,
 #new_string_header:after,
@@ -222,7 +223,7 @@
 		}
 
 		div:nth-of-type(odd) {
-			background-color: #C9D9FF;
+			background-color: $highlight-color;
 		}
 	}
 }
