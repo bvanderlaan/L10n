@@ -27,7 +27,7 @@
     <tr>
       <th>Lang</th>
       <th>Langcode</th>
-      <th colspan="3"></th>
+      <th></th>
     </tr>
   </thead>
 
@@ -36,8 +36,8 @@
       <tr>
         <td><%= language.langname %></td>
         <td><%= language.langcode %></td>
-        <td><%= link_to 'Edit', edit_language_path(language) %></td>
-        <td><%= link_to 'Destroy', language, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Edit', edit_language_path(language) %>
+            <%= link_to 'Destroy', language, method: :delete, data: { confirm: "Are you sure?\nThis will delete all translations for this language." } %></td>
       </tr>
     <% end %>
   </tbody>

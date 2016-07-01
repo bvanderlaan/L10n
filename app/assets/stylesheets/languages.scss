@@ -4,6 +4,7 @@
 
 @import 'bootstrap-sprockets';
 @import 'bootstrap';
+@import 'colours';
 
 #languages_header:before,
 #languages_header:after {
@@ -34,5 +35,28 @@
 
     strong {
         @extend .text-warning;
+    }
+}
+
+table {
+    @extend .table;
+
+    tbody > tr:nth-child(odd) > td {
+        background-color: $highlight-color;
+    }
+    tr {
+        a:first-of-type {
+            @extend .btn;
+            @extend .btn-primary;
+        }
+        a:last-of-type {
+            @extend .btn;
+            @extend .btn-danger;
+            @extend .btn-sm;
+        }
+
+        td:last-of-type {
+            @extend .text-right;
+        }
     }
 }
