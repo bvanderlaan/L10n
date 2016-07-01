@@ -1,7 +1,5 @@
 <% unless flash.empty? %>
-  <% flash.each do |level, msg| %>
-    <%= content_tag :p, msg, class: "alert alert-#{level}" %>
-  <% end %>
+  <% flash_messages %>
 <% end %>
 
 <div id="languages_header">
