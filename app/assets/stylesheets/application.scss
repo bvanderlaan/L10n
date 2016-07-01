@@ -13,8 +13,14 @@
  *= require_tree .
  *= require_self
  */
+ 
+$header-blue: #54638C;
+$footer-height: 60px;
+$font-family: 'Droid Serif',Georgia,Cambria,'Times New Roman',Times,serif;
+
 body {
 	font-size: 100%;
+	font-family: $font-family;
 }
 
  #container {
@@ -24,74 +30,76 @@ body {
 
 hr {
 	margin: 20px;
-	border-color: #54638C;
+	border-color: $header-blue;
 }
 
 /* =Header
 -------------------------------------------------------------- */
 #header {
-	background-color: #54638C;
+	background-color: $header-blue;
 	padding: 10px;
-}
-#header ul {
-	list-style: none;
-}
 
-#header li {
-	line-height: 1.2;
-	overflow: hidden;
-	margin: 0;
-	padding: 0;
-	display: inline;
-	color: #FFFFFF;
-}
+	ul {
+		list-style: none;
+	}
 
-#header li a {
-	text-decoration: none;
-	color: #FFFFFF;
-}
+	li {
+		line-height: 1.2;
+		overflow: hidden;
+		margin: 0;
+		padding: 0;
+		display: inline;
+		color: #FFFFFF;
 
-#header li a:hover {
-	text-decoration: underline;
-	background-color: transparent;
-}
+		a {
+			text-decoration: none;
+			color: #FFFFFF;
 
-#header #logo {
-	float: left;
-	margin-left: 8px;
-}
+			&:hover {
+				text-decoration: underline;
+				background-color: transparent;
+			}
+		}
+	}
 
-#header #logo a {
-	text-decoration: none;
-	color: #FFFFFF;
-}
+	#logo {
+		float: left;
+		margin-left: 8px;
 
-#header #logo a:hover{
-	text-decoration: underline;
-	background-color: transparent;
-}
+		a {
+			text-decoration: none;
+			color: #FFFFFF;
 
-#header #user_menu {
-	float: right;
-	margin-right: 8px;
-}
+			&:hover{
+				text-decoration: underline;
+				background-color: transparent;
+			}
+		}
 
-#header #logo h1 {
-	float: left;
-	margin-top: 11px;
-}
+		h1 {
+			float: left;
+			margin-top: 11px;
+		}
+	}
 
-#header #logo_img {
-	float: left;
-	margin-right: 8px;
-	margin-top: 5px;
+	#user_menu {
+		float: right;
+		margin-right: 8px;
+	}
+
+	#logo_img {
+		float: left;
+		margin-right: 8px;
+		margin-top: 5px;
+	}
 }
+ 
 
 /* =Headings
 -------------------------------------------------------------- */
 
 h1, h2, h3, h4, h5, h6 {
-	font-family: 'Droid Serif',Georgia,Cambria,'Times New Roman',Times,serif;
+	font-family: $font-family;
 }
 
 /* =Typeface
@@ -99,7 +107,7 @@ h1, h2, h3, h4, h5, h6 {
 
 a,
 p {
-	font-family: 'Droid Serif',Georgia,Cambria,'Times New Roman',Times,serif;
+	font-family: $font-family;
 }
 
 
@@ -109,7 +117,7 @@ p {
   margin-left: auto;
   margin-right: auto;
   max-width: 1280px;
-  padding-bottom: 60px; /* Height of the footer. */
+  padding-bottom: $footer-height;
 }
 
 @media screen and (max-width: 1280px) {
@@ -124,8 +132,21 @@ p {
 	position: absolute;
 	bottom: 0;
 	width: 100%;
-	height: 60px;
-	background-color: #54638C;
+	height: $footer-height;
+	background-color: $header-blue;
+
+	#copy_write {
+		float: right;
+		margin-right: 10px;
+		margin-top: 30px;
+
+		a,
+		p {
+			color: #FFFFFF;
+			margin-top: 5px;
+			margin-bottom: 5px;
+		}
+	}
 }
 
 #header:before,
@@ -145,17 +166,3 @@ p {
 #footer:after {
 	clear: both;
 }
-
-#footer #copy_write {
-	float: right;
-	margin-right: 10px;
-	margin-top: 30px;
-}
-
-#footer #copy_write a,
-#footer #copy_write p {
-	color: #FFFFFF;
-	margin-top: 5px;
-	margin-bottom: 5px;
-}
-
