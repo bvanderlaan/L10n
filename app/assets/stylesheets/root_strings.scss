@@ -168,3 +168,35 @@
 		float: right;
 	}
 }
+
+form {
+	.field  {
+		margin-bottom: 0px !important;
+		margin-left: -8px;
+		padding-left: 8px;
+		padding-bottom: 10px;
+		padding-top: 5px;
+	}
+
+	div:nth-of-type(4n),
+	div:nth-of-type(4n-1)  {
+		background-color: #C9D9FF;
+	}
+
+	.actions {
+		margin-top: 8px;
+	}
+
+	input[type="submit"] {
+		@extend .btn;
+		@extend .btn-success;
+	}
+
+	input {
+		width: 98%;
+	}
+
+	label {
+		margin-bottom: 0px;
+	}
+}
