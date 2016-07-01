@@ -56,13 +56,19 @@
 	margin-left: auto;
 	margin-right: auto;
 
-	div:not(:last-child) {
+	div {
 		float: left;
 		margin-right: 10px;
 	}
 
 	img {
 		margin-top: 10px;
+	}
+
+	@media screen and (max-width: 645px) {
+		img {
+			display: none;
+		}
 	}
 
 	a {
