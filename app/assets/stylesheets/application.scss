@@ -148,6 +148,7 @@ p {
 	width: 100%;
 	height: $footer-height;
 	background-color: $header-blue;
+	z-index: 1000;
 
 	#copy_write {
 		float: right;
