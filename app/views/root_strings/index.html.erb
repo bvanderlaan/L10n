@@ -21,33 +21,37 @@
 </div>
 <hr />
 <% if @root_strings.count > 0 %>
-<div id="strings">
-  <% @root_strings.each do |root_string| %>
-    <div class="string_card">
-      <%= link_to root_string do %>
-        <p><%= root_string.string %></p>
-        <hr/>
-        <% unless root_string.comment.blank? %>
-          <p><em><%= root_string.comment %></em></p>
-        <% end %>
-        <div>
-          <% root_string.translated_strings.each do |translated_string| %>
-            <span><%= translated_string.language.langname %></span>
+  <div id="strings">
+    <% @root_strings.each do |root_string| %>
+      <div class="string_card">
+        <%= link_to root_string do %>
+          <p><%= root_string.string %></p>
+          <hr/>
+          <% unless root_string.comment.blank? %>
+            <p><em><%= root_string.comment %></em></p>
           <% end %>
-        </div>
-        <div>
-          <% root_string.translated_strings.each do |translated_string| %>
-            <span><%= translated_string.language.langcode %></span>
+          <div>
+            <% root_string.translated_strings.each do |translated_string| %>
+              <span><%= translated_string.language.langname %></span>
+            <% end %>
+          </div>
+          <div>
+            <% root_string.translated_strings.each do |translated_string| %>
+              <span><%= translated_string.language.langcode %></span>
+            <% end %>
+          </div>
+          <div></div>
+          <% if root_string.translated_strings.empty? %>
+            <label>This string has no translations</label>
           <% end %>
-        </div>
-        <div></div>
-        <% if root_string.translated_strings.empty? %>
-          <label>This string has no translations</label>
         <% end %>
-      <% end %>
-    </div>
-  <% end %>
-  <% else %>
+      </div>
+    <% end %>
+  </div>
+  <nav id="pagation_nav">
+    <%= will_paginate @root_strings, renderer: BootstrapPagination::Rails, id: "pagation" %>
+  </nav>
+<% else %>
     <div id="no_strings_message">
       <div>
         <%= image_tag 'logo.png', size: "100" %>
@@ -58,5 +62,4 @@
         <%= link_to 'Add New String', new_root_string_path %>
       </div>
     </div>
-  <% end %>
-</div>
+<% end %>
