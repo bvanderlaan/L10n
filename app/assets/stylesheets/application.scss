@@ -42,27 +42,38 @@ hr {
 	background-color: $header-blue;
 	padding: 10px;
 
-	ul {
-		list-style: none;
-	}
+	div:last-of-type {
+		float: right;
 
-	li {
-		line-height: 1.2;
-		overflow: hidden;
-		margin: 0;
-		padding: 0;
-		display: inline;
-		color: #FFFFFF;
+		form {
+			@extend .input-group;
+			width: 400px;
+			margin-top: 13px;
 
-		a {
-			text-decoration: none;
-			color: #FFFFFF;
+			span:first-of-type {
+				@extend .input-group-btn;
+			}
+			input[type="text"] {
+				@extend .form-control;
+			}
+			button[type="submit"] {
+				@extend .btn;
+				@extend .btn-default;
 
-			&:hover {
-				text-decoration: underline;
-				background-color: transparent;
+				i {
+					@extend .glyphicon;
+					@extend .glyphicon-search;
+				}
 			}
 		}
+
+		@media screen and ( max-width: 571px) {
+			form {
+				width: 100%;
+				margin-top: 5px;
+			}
+		}
+
 	}
 
 	#logo {

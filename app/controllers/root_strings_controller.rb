@@ -5,7 +5,11 @@ class RootStringsController < ApplicationController
   # GET /root_strings
   # GET /root_strings.json
   def index
-    @root_strings = RootString.order("lower(string)").all
+    if params[:search]
+      @root_strings = RootString.search(params[:search]).order("lower(string)")
+    else
+      @root_strings = RootString.order("lower(string)").all
+    end
   end
 
   # GET /root_strings/1
@@ -76,6 +80,6 @@ class RootStringsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def root_string_params
-      params.require(:root_string).permit(:string, :comment, :translated_strings_attributes => [:translation, :comment, :language_id, :id])
+      params.require(:root_string).permit(:string, :comment, :search, :translated_strings_attributes => [:translation, :comment, :language_id, :id])
     end
 end

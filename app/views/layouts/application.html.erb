@@ -16,6 +16,12 @@
 					<%= image_tag 'logo-inverted.png', size: "50", id: 'logo_img' %>
 					<h1><%= link_to "L10n", root_path %> </h1>
 				</div>
+				<div>
+					<%= form_tag("#{root_strings_path}/search", action: "index", :method => "get", id: "search-form") do %>
+						<%= text_field_tag :search, params[:search], placeholder: "Search" %>
+						<span><button type="submit" name="commit" value="Search"><i></i></button></span>
+					<% end %>
+				</div>
 			</div>
 			<div id="main">
 				<%= yield %>

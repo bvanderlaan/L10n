@@ -4,6 +4,10 @@ class RootString < ActiveRecord::Base
 	validates :string, presence: true
 	validates :comment, length: { maximum: 255 }
 	before_validation :remove_empty_translations, on: :update
+
+	def self.search(query)
+		where("string LIKE ?", "%#{query}%")
+	end
 		
 private
 	
