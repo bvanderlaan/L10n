@@ -6,7 +6,7 @@
     <%= f.fields_for :translated_strings do |translated_string| %>
       <%= translated_string.hidden_field :language_id %>
       <%= translated_string.hidden_field :id %>
-      <%= translated_string.text_field :translation, oninput: "", label: "#{translated_string.object.language.langname} Translation" %>
+      <%= translated_string.text_field :translation, oninput: "", label: "#{translated_string.object.language.langname} Translation", icon: "none" %>
       <%= translated_string.text_field :comment, maxlength: "255", label: "#{translated_string.object.language.langname} Translator Comments" %>
     <% end %>
 

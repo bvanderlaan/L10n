@@ -321,6 +321,15 @@ form {
 		padding-top: 5px;
 	}
 
+	.has-error {
+
+		span {
+			@extend .glyphicon-remove;
+			top: 20px !important;
+			right: 20px;
+		}
+	}
+
 	.form-group,
 	.actions {
 		padding-right: 20px;
