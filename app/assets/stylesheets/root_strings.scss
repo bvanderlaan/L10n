@@ -6,6 +6,8 @@
 @import 'bootstrap';
 @import 'colours';
 
+#error_404_message:before,
+#error_404_message:after,
 #new_string_header:before,
 #new_string_header:after,
 #string_details > div:first-of-type:before,
@@ -23,6 +25,7 @@
 	display: table;
 }
 
+#error_404_message:after,
 #new_string_header:after,
 #string_details > div:first-of-type:after,
 #no_strings_message:after,
@@ -51,6 +54,7 @@
 	}
 }
 
+#error_404_message,
 #no_strings_message {
 	width: 50%;
 	margin-left: auto;
@@ -65,23 +69,48 @@
 		margin-top: 10px;
 	}
 
-	@media screen and (max-width: 645px) {
-		img {
-			display: none;
-		}
-	}
-
 	a {
 		@extend .btn;
 		@extend .btn-primary;
 	}
 }
 
-@media screen and (max-width: 1024px) {
+@media screen and (max-width: 645px) {
+	#error_404_message,
 	#no_strings_message {
-		width: 80%;
-	}	
+		width: 100%;
+	}
+
+	#error_404_message img,
+	#no_strings_message img {
+		display: none;
+	}
 }
+
+/* Extra Small Devices, Phones */ 
+@media only screen and (min-width : 480px) {
+	#no_strings_message,
+	#error_404_message {
+		width: 100%;
+	}
+}
+
+/* Small Devices, Tablets */
+@media only screen and (min-width : 768px) {
+	#no_strings_message,
+	#error_404_message {
+		width: 90%;
+	}
+}
+
+/* Medium Devices, Desktops */
+@media only screen and (min-width : 992px) {
+	#no_strings_message,
+	#error_404_message {
+		width: 65%;
+	}
+}
+
 
 #strings {
 	margin: 10px auto 10px auto;

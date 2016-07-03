@@ -3,7 +3,8 @@ Rails.application.routes.draw do
   resources :languages, except: [:show]
   resources :root_strings
   
-  get '*path' => redirect('/404.html')
+  # Rount unknown paths to the error controllers' not_found action.
+  get "*any", via: :all, to: "errors#not_found"
   
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
