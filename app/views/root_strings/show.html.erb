@@ -17,7 +17,7 @@
 	</p>
 
 	<% unless @root_string.comment.blank? %>
-   	    <strong>Comment</strong>
+   	<strong>Comment</strong>
 		<p id="context">
 		  <em><%= @root_string.comment %></em>
 		</p>
@@ -34,14 +34,32 @@
 	<% @root_string.translated_strings.each do |translated_string| %>
 		<div>
 			<strong><%= translated_string.language.langname %> translation</strong>
-			<p>
-				<%= translated_string.translation %>
-			</p> 
+			<div>
+				<div>
+					<p>
+						<%= translated_string.translation %>
+					</p> 
+				</div>
+				<div>
+					<button class="copy-btn" data-clipboard-text="<%= translated_string.translation %>" data-toggle="tooltip" title="Copy to clipboard" data-placement="bottom">
+						<span></span>
+					</button>
+				</div>
+			</div>
 			<% unless translated_string.comment.blank? %>
 				<strong><%= translated_string.language.langname %> translator comments</strong>
-				<p>
-					<%= translated_string.comment %>
-				</p>
+				<div>
+					<div>
+						<p>
+							<%= translated_string.comment %>
+						</p> 
+					</div>
+					<div>
+						<button class="copy-btn" data-clipboard-text="<%= translated_string.comment %>" data-toggle="tooltip" title="Copy to clipboard" data-placement="bottom">
+							<span></span>
+						</button>
+					</div>
+				</div>
 			<% end %>
 		</div>
      <% end %>

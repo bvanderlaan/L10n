@@ -6,6 +6,8 @@
 @import 'bootstrap';
 @import 'colours';
 
+#phrase_translations > div > div:before,
+#phrase_translations > div > div:after,
 #error_404_message:before,
 #error_404_message:after,
 #new_string_header:before,
@@ -25,6 +27,7 @@
 	display: table;
 }
 
+#phrase_translations > div > div:after,
 #error_404_message:after,
 #new_string_header:after,
 #string_details > div:first-of-type:after,
@@ -208,11 +211,11 @@
 		margin-top: 5px;
 	}
 
-	div:first-of-type > div:first-of-type {
+	> div:first-of-type > div:first-of-type {
 		float: left;
 	}
 
-	div:first-of-type > div:last-of-type {
+	> div:first-of-type > div:last-of-type {
 		float: right;
 		margin-top: 20px;
 
@@ -248,24 +251,60 @@
 	#phrase_translations { 
 		margin-bottom: 20px;
 
-		div {
+		> div {
 			margin: -5px;
 			padding: 5px;
 
-			p {
-				border-width: 1px;
-				border-style: solid;
-				padding: 5px;
-				background-color: #FFFFFF;
+			> div {
+				@extend .container-fluid;
+				padding: 0;
+
+				> div:first-of-type {
+					@extend .col-xs-10;
+					@extend .col-sm-11;
+					@extend .col-md-11;
+					@extend .col-lg-11;
+					padding: 0;
+				}
+				> div:last-of-type {
+					@extend .col-xs-2;
+					@extend .col-sm-1;
+					@extend .col-md-1;
+					@extend .col-lg-1;
+					padding: 0;
+				}
 			}
 		}
 
-		div:nth-of-type(even) {
-			padding: 10px;
+		> div:nth-of-type(even) {
+			padding: 10px 5px 10px 5px;
 		}
 
-		div:nth-of-type(odd) {
+		> div:nth-of-type(odd) {
 			background-color: $highlight-color;
+		}
+
+		button {
+			margin-top: 5px;
+			border-top-left-radius: 0;
+			border-bottom-left-radius: 0;
+			border: solid 1px;
+			line-height: 14px;
+			border-left: none;
+			@extend .btn;
+
+			> span {
+				@extend .glyphicon;
+				@extend .glyphicon-copy;
+			}
+		}
+		p {
+			border-width: 1px;
+			border-style: solid;
+			padding: 5px;
+			background-color: #FFFFFF;
+			overflow: hidden;
+			text-overflow: ellipsis;
 		}
 	}
 }

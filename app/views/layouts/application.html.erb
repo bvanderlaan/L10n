@@ -32,5 +32,25 @@
 				</div>
 			</div>
 		</div>
+		<script>
+			var clipboard = new Clipboard('.copy-btn');
+
+			clipboard.on('success', function(e) {
+				console.log(e);
+			});
+
+			clipboard.on('error', function(e) {
+				console.log(e);
+			});
+		</script>
+		<script>
+			$(document).ready(function(){
+				$('[data-toggle="tooltip"]').tooltip();
+
+				 $(".copy-btn").click(function(){
+					 $(this).tooltip('hide');
+				}); 
+			});
+		</script>
 	</body>
 </html>
