@@ -1,29 +1,14 @@
-<%= form_for(@language) do |f| %>
-  <% if @language.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@language.errors.count, "error") %> prohibited this language from being saved:</h2>
-
-      <ul>
-      <% @language.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
-
-  <div class="field">
-    <%= f.label :langname, "Language Name" %><br>
+<%= bootstrap_form_for(@language, label_errors: true) do |f| %>
+    <%= f.alert_message "Please fix the errors below." %>
     <%= f.text_field :langname, 
                      autofocus: true, 
                      required: true,
-                     placeholder: "Example: English" %>
-  </div>
-  <div class="field">
-    <%= f.label :langcode, "Language Code" %><br>
+                     placeholder: "Example: English",
+                     label: "Language Name" %>
     <%= f.text_field :langcode, 
                      required: true, 
-                     placeholder: "Example: en" %>
-  </div>
+                     placeholder: "Example: en",
+                     label: "Language Code" %>
   <div class="actions">
     <%= f.submit %>
   </div>

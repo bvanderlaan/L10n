@@ -1,43 +1,16 @@
-<%= form_for(@root_string) do |f| %>
-  <% if @root_string.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@root_string.errors.count, "error") %> prohibited this string from being saved:</h2>
-
-      <ul>
-      <% @root_string.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
-
-  <div class="field">
-    <%= f.label :string, "Word or Phrase" %><br>
-    <%= f.text_field :string, :autofocus=>true, :required=>true %>
-  </div>
-  <div class="field">
-    <%= f.label :comment %><br>
+<%= bootstrap_form_for(@root_string, label_errors: true) do |f| %>
+    <%= f.alert_message "Please fix the errors below." %>
+    <%= f.text_field :string, :autofocus=>true, :required=>true, :label=>"Word or Phrase" %>
     <%= f.text_field :comment, maxlength: "255" %>
-  </div>
 
-  <%= f.fields_for :translated_strings do |translated_string| %>
-    <%= translated_string.hidden_field :language_id %>
-    <%= translated_string.hidden_field :id %>
-    <div class="field">
+    <%= f.fields_for :translated_strings do |translated_string| %>
+      <%= translated_string.hidden_field :language_id %>
+      <%= translated_string.hidden_field :id %>
+      <%= translated_string.text_field :translation, oninput: "", label: "#{translated_string.object.language.langname} Translation" %>
+      <%= translated_string.text_field :comment, maxlength: "255", label: "#{translated_string.object.language.langname} Translator Comments" %>
+    <% end %>
 
-    <!--name = root_string[translated_strings_attributes][1][id]
-    id = root_string_translated_strings_attributes_1_id -->
-
-      <%= translated_string.label :translation, "#{translated_string.object.language.langname} Translation" %><br>
-      <%= translated_string.text_field :translation, oninput: "" %>
+    <div class="actions">
+      <%= f.submit "Save" %>
     </div>
-    <div class="field">
-      <%= translated_string.label :comment, "#{translated_string.object.language.langname} Translator Comments" %><br>
-      <%= translated_string.text_field :comment, maxlength: "255" %>
-    </div>
-  <% end %>
-
-  <div class="actions">
-    <%= f.submit "Save" %>
-  </div>
 <% end %>

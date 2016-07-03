@@ -44,6 +44,9 @@ gem 'will_paginate', '~> 3.1'
 # Use the Will_Paginate Bootstrap plugin.
 gem 'will_paginate-bootstrap', '~> 1.0', '>= 1.0.1'
 
+# Use helper for generating forms which intergrate with BootStrap.
+gem 'bootstrap_form', '~> 2.3'
+
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug'
