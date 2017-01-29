@@ -1,4 +1,4 @@
-#L10n
+# L10n
 
 L10n (pronounced *Lion*) is a WUI to a translation database. 
 
