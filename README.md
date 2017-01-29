@@ -8,12 +8,12 @@ The idea is that a company who pays for translations of their applications can s
 
 1. Clone the repository.  
     ```
-    git clone https://github.com/bvanderlaan/website-l10n.git
+    git clone https://github.com/bvanderlaan/L10n.git
     ```
 
 2. Navigate into the repositories root folder.  
     ```
-    cd website-l10n
+    cd L10n
     ```
 
 3. Install bundle  
@@ -77,7 +77,7 @@ TBD
 
 ## Contributing
 
-Bug reports and pull requests are welcome on GitHub at https://github.com/bvanderlaan/website-l10n. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [Contributor Covenant](http://contributor-covenant.org) code of conduct.
+Bug reports and pull requests are welcome on GitHub at https://github.com/bvanderlaan/L10n. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [Contributor Covenant](http://contributor-covenant.org) code of conduct.
 
 
 ## License
