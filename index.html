@@ -1,0 +1,149 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <title>L10n by bvanderlaan</title>
+    <link rel="stylesheet" href="/assets/css/style.css?v=d502c54c627846836c7bba296a5ee953c04d6a12">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+    <script src="/assets/js/main.js"></script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+
+  </head>
+  <body>
+
+      <header>
+        <h1>L10n</h1>
+        <p>L10n (pronounced Lion) is a WUI to a translation database. The idea is that a company who pays for translations of their applications can store all the translated strings in a single place and reuse them in future applications.</p>
+      </header>
+
+      <div id="banner">
+        <span id="logo"></span>
+
+        <a href="https://github.com/bvanderlaan/L10n" class="button fork"><strong>View On GitHub</strong></a>
+        
+      </div><!-- end banner -->
+
+    <div class="wrapper">
+      <nav>
+        <ul></ul>
+      </nav>
+      <section>
+
+<p>The idea is that a company who pays for translations of their applications can store all the translated strings in a single place and reuse them in future applications.</p>
+
+<h2 id="installation">Installation</h2>
+
+<ol>
+  <li>
+    <p>Clone the repository.<br />
+ <code class="highlighter-rouge">
+ git clone https://github.com/bvanderlaan/L10n.git
+</code></p>
+  </li>
+  <li>
+    <p>Navigate into the repositories root folder.<br />
+ <code class="highlighter-rouge">
+ cd L10n
+</code></p>
+  </li>
+  <li>
+    <p>Install bundle<br />
+ <code class="highlighter-rouge">
+ $ bundle install
+</code></p>
+
+    <p>By default the config/database.yml is setup to use MySQL. The next steps is to setup a database on you MySQL install for L10n to use.</p>
+  </li>
+  <li>
+    <p>Log into MySQL as a root user.</p>
+
+    <div class="highlighter-rouge"><pre class="highlight"><code> $ mysql -u root -p  
+ Enter password: *&lt;your root password&gt;*  
+</code></pre>
+    </div>
+  </li>
+  <li>
+    <p>Now grant privileges to the user that L10n will use to interact with the database. The default as defined in config/database.yml is <em>l10nadmin</em>.</p>
+
+    <div class="highlighter-rouge"><pre class="highlight"><code> mysql&gt; grant all privileges on l10n_develpoment.*
+     -&gt; to 'l10nadmin'@'localhost'
+	    -&gt; identified by '*&lt;your l10nadmin user password&gt;*';
+</code></pre>
+    </div>
+  </li>
+  <li>
+    <p>You also need to add privileges to the other database that you will create using <strong>Rake</strong>.</p>
+
+    <div class="highlighter-rouge"><pre class="highlight"><code> mysql&gt; grant all privileges on l10n_test.*
+     -&gt; to 'l10nadmin'@'localhost'
+ 	    -&gt; identified by '*&lt;your l10nadmin user password&gt;*';
+
+
+ mysql&gt; grant all privileges on l10n.*
+     -&gt; to 'l10nadmin'@'localhost'
+ 	    -&gt; identified by '*&lt;your l10nadmin user password&gt;*';
+</code></pre>
+    </div>
+
+    <p>At this point you can log out of mysql (remember your logged in as the root user) and log back in as the <em>l10nadmin</em> user.</p>
+
+    <div class="highlighter-rouge"><pre class="highlight"><code> mysql&gt; exit;
+      $ mysql -u l10nadmin -p 
+	     Enter password: *&lt;your l10nadmin password&gt;*
+</code></pre>
+    </div>
+
+    <p>You can log out of mysql now if you like.</p>
+  </li>
+  <li>
+    <p>Back in a terminal you can now create and populate the database with the required tables and entries using <em>Rake</em>.<br />
+ <code class="highlighter-rouge">
+ $ rake db:setup
+</code></p>
+  </li>
+  <li>
+    <p>Lastly you can now start up the Rails server<br />
+ <code class="highlighter-rouge">
+ $ rails server
+</code></p>
+
+    <p>By default it will host the website on port 3000.
+ You can optionally specify a different port using the <em>-p</em> argument.</p>
+
+    <p><code class="highlighter-rouge">
+ $ rails server -p 8080
+</code></p>
+  </li>
+</ol>
+
+<h2 id="development">Development</h2>
+
+<p>TBD</p>
+
+<h2 id="contributing">Contributing</h2>
+
+<p>Bug reports and pull requests are welcome on GitHub at https://github.com/bvanderlaan/L10n. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the <a href="http://contributor-covenant.org">Contributor Covenant</a> code of conduct.</p>
+
+<h2 id="license">License</h2>
+
+<p>The gem is available as open source under the terms of the <a href="https://opensource.org/licenses/Apache-2.0">Apache License, version 2.0</a>.</p>
+
+
+      </section>
+      <footer>
+        
+          <p>Project maintained by <a href="https://github.com/bvanderlaan">Brad van der Laan</a></p>
+        
+        <p><small>Hosted on GitHub Pages &mdash; Theme by <a href="https://twitter.com/michigangraham">mattgraham</a></small></p>
+      </footer>
+    </div>
+    <!--[if !IE]><script>fixScale(document);</script><![endif]-->
+
+    
+
+  </body>
+</html>
