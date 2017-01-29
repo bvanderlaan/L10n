@@ -28,16 +28,12 @@
 			</div>
 			<div id="footer">
 				<div id="copy_write">
-					<p>&copy; Copyright <%= Date.today.year %> <a href="http://imaginativethinking.ca">ImaginativeThinking.ca</a></p>
+					<p>&copy; Copyright <%= Date.today.year %> <a href="http://bradvanderlaan.ca">Brad van der Laan</a></p>
 				</div>
 			</div>
 		</div>
 		<script>
 			var clipboard = new Clipboard('.copy-btn');
-
-			clipboard.on('success', function(e) {
-				console.log(e);
-			});
 
 			clipboard.on('error', function(e) {
 				console.log(e);
