@@ -5,24 +5,25 @@
     <meta http-equiv="X-UA-Compatible" content="chrome=1">
     <title>L10n by bvanderlaan</title>
     <link rel="stylesheet" href="/L10n/assets/css/style.css?v=d502c54c627846836c7bba296a5ee953c04d6a12">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
-    <script src="/L10n/assets/js/main.js"></script>
-    <!--[if lt IE 9]>
-      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
-    <![endif]-->
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
   </head>
   <body>
     <header>
       <h1>L10n</h1>
       <p>
-        L10n (pronounced Lion) is a WUI to a translation database. 
-         The idea is that a company who pays for translations of their applications can store all the translated strings in a single place and reuse them in future applications.
+        L10n (pronounced <em>Lion</em>) is a web application that allows you to store and search for known good string translations.
       </p>
     </header>
     <div id="banner">
       <span id="logo"></span>
-      <a href="https://github.com/bvanderlaan/L10n" class="button fork"><strong>View On GitHub</strong></a>        
+      <a href="https://github.com/bvanderlaan/L10n" class="button fork"><strong>View On GitHub</strong></a>
+      <div class="downloads">
+        <span>Downloads:</span>
+        <ul>
+          <li><a href="https://github.com/bvanderlaan/L10n/zipball/master" class="button">ZIP</a></li>
+          <li><a href="https://github.com/bvanderlaan/L10n/tarball/master" class="button">TAR</a></li>
+        </ul>
+      </div>
     </div>
     <div class="wrapper">
       <nav>
@@ -30,10 +31,72 @@
       </nav>
       <section>
         <p>
-          The idea is that a company who pays for translations of their applications can store all the translated strings in a single place and reuse them in future applications.
+          L10n allows you to search for and input phrases that have known good translations in multiple other languages
+          so you can save the turn around time of getting phrases translated and vetted by reusing pre-translated and
+          vetted phrases your organization has already used.
+        </p>
+        <p>
+          When inputting new phrases
+          you provide the local language version of the phrase (in my case English) and a comment explaining
+          the context of the phrase, something that explains the usage of the phrase to help translators
+          choose which version of a word to use. Then once you have translations which you know are good
+          for your context and the target language you can add the translations of the phrase. You can add
+          one translated form of a phrase per target language; Not all phrases need to be translated into
+          each target langauge and you can add or update translations at any time.
         </p>
 
+        <h2 id="whyl10n">Why L10n?</h2>
+        <p>
+          Lets say you create an application, or documentation for that matter, which will be used in
+          multiple region and therefore you choose to localize the text so that your users who read other
+          languages will have an easier time using your application. You probably contract out the translations
+          to a firm; the process is generally to scrape out all the phrases you need translated with context
+          comments, ship them over to the translators, wait, then insert the now translated strings into
+          your application via whatever localization framework your using. L10n is here to address the waiting
+          part of that process.
+        </p>
+        <p>
+          If you have multiple applications all being translated into the same
+          languages you will probably start to have some overlapping phrases. If your translation firm is
+          good they probably have a phrase map so they won't charge you extra to re-translate phrases you
+          already had them translate (although they will probably charge to you context check them) however
+          you will still have to wait for them to get back to you which can be anywhere from a few days to
+          a couple weeks depending on their throughput, contract agreement, and number of phrases needing to
+          be translated. If the bulk of the phrases are already known wouldn't it be nice if you could just
+          look them up in a local database?
+        </p>
+        <p>
+          With L10n you can input all the phrases which you have already gotten translated and have
+          checked internally to make sure they are good for your context into a searchable database so that
+          future projects can look up known good pre-translated
+          phrase which they could use to avoid the turn around times.
+        </p>
+        <p>
+          If one project has already
+          waited the days/weeks to get a set of phrases translated and some of those phrases are words
+          like "Save" or "Delete" as used in a file header bar or "Ok" and "Cancel" as used on a prompt then
+          they could via L10n's web user interface add the phrases to L10n's database complete with context
+          comments (i.e. "Cancel" - "Text used in a button on a prompt meant to terminate an operation")
+          then future projects who are adding a file header bar or confirmation prompts could look up
+          those phrases via L10n's web user interface and find all the known good translations for those
+          phrase thus saving them the turn around time to get them retranslated and revetted by the
+          translation firm.
+        </p>
+
+        <h2 id="whatyouget">What you get with L10n</h2>
+        <p>When you setup a L10n server you get a database and an easy to use web based interface.</p>
+
         <h2 id="installation">Installation</h2>
+        <p>
+          L10n is a Ruby-on-Rails app which be default connects to a MySQL database. You can configure L10n to use a
+          different SQL database if you so choose by updating the <code>config/database.yml</code> file.
+        </p>
+        <p>
+          To install L10n from scratch you will need to have <a href="http://rubyonrails.org/">Ruby-on-Rails 4</a> and
+          the <a href="http://bundler.io/">Bundler gem</a> installed. You will also need to install MySQL, or whichever
+          SQL database you plan to use for L10n. The SQL database can be on the same server as L10n or hosted on a
+          different server which L10n will be able to connect to. Once installed perform the following:
+        </p>
         <ol>
           <li>
             <p>
@@ -49,47 +112,37 @@
           </li>
           <li>
             <p>
-              Install bundle<br />
+              Install the required gems via bundler<br />
               <code class="highlighter-rouge">$ bundle install</code>
             </p>
-            <p>By default the config/database.yml is setup to use MySQL. The next steps is to setup a database on you MySQL install for L10n to use.</p>
           </li>
-          <li>
+        </ol>
+        <p>
+          By default the <code>config/database.yml</code> is setup to use MySQL.
+          The next steps is to setup a database on you MySQL install for L10n to use.
+        </p>
+        <ol>
+          <li value="4">
             <p>Log into MySQL as a root user.</p>
 
             <div class="highlighter-rouge">
               <pre class="highlight">
-                <code> 
-$ mysql -u root -p  
-Enter password: *&lt;your root password&gt;*  
+                <code>
+$ mysql -u root -p
+Enter password: *&lt;your root password&gt;*
                 </code>
               </pre>
             </div>
           </li>
           <li>
-            <p>Now grant privileges to the user that L10n will use to interact with the database. The default as defined in config/database.yml is <em>l10nadmin</em>.</p>
-
+            <p>
+              Now grant privileges to the user that L10n will use to interact with the database.
+              The user L1on will use is defiend in <code>config/database.yml</code>. The default
+              user name is <em>l10nadmin</em>.
+            </p>
             <div class="highlighter-rouge">
               <pre class="highlight">
                 <code>
-mysql&gt; grant all privileges on l10n_develpoment.*
-        -&gt; to 'l10nadmin'@'localhost'
-        -&gt; identified by '*&lt;your l10nadmin user password&gt;*';
-                </code>
-              </pre>
-            </div>
-          </li>
-          <li>
-            <p>You also need to add privileges to the other database that you will create using <strong>Rake</strong>.</p>
-  
-            <div class="highlighter-rouge">
-              <pre class="highlight">
-                <code> 
-mysql&gt; grant all privileges on l10n_test.*
-        -&gt; to 'l10nadmin'@'localhost'
-        -&gt; identified by '*&lt;your l10nadmin user password&gt;*';
-
-
 mysql&gt; grant all privileges on l10n.*
         -&gt; to 'l10nadmin'@'localhost'
         -&gt; identified by '*&lt;your l10nadmin user password&gt;*';
@@ -103,39 +156,39 @@ mysql&gt; grant all privileges on l10n.*
               <pre class="highlight">
                 <code>
 mysql&gt; exit;
-$ mysql -u l10nadmin -p 
+$ mysql -u l10nadmin -p
 Enter password: *&lt;your l10nadmin password&gt;*
                 </code>
               </pre>
             </div>
 
-            <p>You can log out of mysql now if you like.</p>
+            <p>Alright you've proven that your database is ready to go. You can log out of mysql now if you like.</p>
           </li>
           <li>
             <p>
-              Back in a terminal you can now create and populate the database with the required tables and entries using <em>Rake</em>.<br />
-              <code class="highlighter-rouge">$ rake db:setup</code>
+              Back in a terminal you can now create and populate the database with the required tables and entries using <em>Rake</em>
+              (Rake is a tool which comes with Ruby-on-Rails).<br />
+              <code class="highlighter-rouge">$ RAILS_ENV=production rake db:setup</code>
             </p>
           </li>
           <li>
             <p>
-              Lastly you can now start up the Rails server<br />
-              <code class="highlighter-rouge">$ rails server</code>
+              Lastly you can now start up the Rails server. There is no need to install a web server because Rails
+              applications are self hosting via an in memory web server which comes with Rails. Simply execute the following
+              command to start the L10n application.<br />
+              <code class="highlighter-rouge">$ RAILS_ENV=production rails server</code>
             </p>
             <p>
               By default it will host the website on port 3000.
               You can optionally specify a different port using the <em>-p</em> argument.
             </p>
-            <p><code class="highlighter-rouge">$ rails server -p 8080</code></p>
+            <p><code class="highlighter-rouge">$ RAILS_ENV=production rails server -p 8080</code></p>
           </li>
         </ol>
 
-        <h2 id="development">Development</h2>
-        <p>TBD</p>
-
         <h2 id="contributing">Contributing</h2>
         <p>
-            Bug reports and pull requests are welcome on GitHub at <a href="https://github.com/bvanderlaan/L10n">https://github.com/bvanderlaan/L10n</a>. This project is intended to be a safe, welcoming space for collaboration, 
+            Bug reports and pull requests are welcome on GitHub at <a href="https://github.com/bvanderlaan/L10n">https://github.com/bvanderlaan/L10n</a>. This project is intended to be a safe, welcoming space for collaboration,
             and contributors are expected to adhere to the <a href="http://contributor-covenant.org">Contributor Covenant</a> code of conduct.
         </p>
 
@@ -148,5 +201,10 @@ Enter password: *&lt;your l10nadmin password&gt;*
       </footer>
     </div>
     <!--[if !IE]><script>fixScale(document);</script><![endif]-->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+    <script src="/L10n/assets/js/main.js"></script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
   </body>
 </html>
