@@ -100,7 +100,44 @@
         </p>
         <h3>Example of Docker command</h3>
         <code>docker run -e SECRET_KEY_BASE=***** -e L10N_DATABASE=l10n_production -e L10N_DATABASE_USER=l10nadmin -e L10N_DATABASE_PASSWORD=**** -e DATABASE_URL=mysql2://l10ndbserver.local:3306/l10n_production l10n:latest</code>
-
+        <p>
+          This command still looks large but like I said you can use <code>docker-compose</code> to script it.
+        </p>
+        <div class="highlighter-rouge">
+          <pre class="highlight">
+            <code>
+version: '2'
+services:
+  web:
+      container_name: l10n
+      image: l10n:latest
+      environment:
+          - SECRET_KEY_BASE=mySuperSecretKeyThatYouCanNeverGuess
+          - L10N_DATABASE=l10n_production
+          - L10N_DATABASE_USER=l10nadmin
+          - L10N_DATABASE_PASSWORD=myl10npassword
+          - DATABASE_URL=mysql2://l10ndb:3306/l10n_production
+      ports:
+          - "8080:3000" # Expose L10n's WUI on http://localhost:8080
+      links:
+          - db:l10ndb # Setup virtual network between this container and l10ndb
+      command: bash -c "rake db:migrate && rake db:seed && rails s -p 3000 -b '0.0.0.0'"
+      restart: always # If the container crashes restart it
+  db:
+      container_name: l10ndb
+      image: mysql:5.7.12 # Offical MySQL Image
+      environment:
+          - MYSQL_ROOT_PASSWORD=myrootpassword
+          - MYSQL_PASSWORD=myl10npassword # Same as L10N_DATABASE_PASSWORD
+          - MYSQL_USER=l10admin # Same as L10N_DATABASE_USER
+          - MYSQL_DATABASE=l10n_production # Same as L10N_DATABASE
+      volumes:
+          - /mnt/DB/l10ndb:/var/lib/mysql # This saves the database files to the host so you can destroy the l10ndb container and not loose data
+      command: [mysqld, --character-set-server=utf8mb4, --collation-server=utf8mb4_unicode_ci] # These flags add unicode support for languages such as Japanese and Russian
+      restart: always # If the container crashes restart it
+            </code>
+          </pre>
+        </div>
         <p>
           For more infromation on how to use the Docker image to setup a L10n server see
           <a href="https://github.com/bvanderlaan/L10n-Docker">L10n-Docker</a>.
