@@ -109,7 +109,7 @@
         <h2 id="installation">Manual Installation of L10n</h2>
         <p>
           L10n is a Ruby-on-Rails app which by default connects to a MySQL database. You can configure L10n to use a
-          different SQL database if you so choose by updating the <code>config/database.yml</code> file.
+          different SQL database if you so choose by updating the <a href="https://github.com/bvanderlaan/L10n/blob/master/config/database.yml"><code>config/database.yml</code></a> file.
         </p>
         <p>
           To install L10n from scratch you will need to have <a href="http://rubyonrails.org/">Ruby-on-Rails 4</a> and
@@ -132,18 +132,25 @@
           </li>
           <li>
             <p>
+              Checkout which version of L10n you want. To use the latest and greatest yet unreleased version use the <code>master</code> branch.<br />
+              <code class="highlighter-rouge">git checkout v1.0.0</code>
+            </p>
+          </li>
+          <li>
+            <p>
               Install the required gems via bundler<br />
               <code class="highlighter-rouge">$ bundle install</code>
             </p>
           </li>
         </ol>
         <p>
-          By default the <code>config/database.yml</code> is setup to use MySQL.
+          By default L10n is setup to use MySQL (See
+          <a href="https://github.com/bvanderlaan/L10n/blob/master/config/database.yml">code>config/database.yml</code></a>).
           The next steps is to setup a database on your MySQL server for L10n to use.
         </p>
         <ol>
           <li value="4">
-            <p>Log into MySQL as a root user.</p>
+            <p>Log into your MySQL server as a root user.</p>
 
             <div class="highlighter-rouge">
               <pre class="highlight">
@@ -157,27 +164,28 @@ Enter password: *&lt;your root password&gt;*
           <li>
             <p>
               Now grant privileges to the user that L10n will use to interact with the database.
-              The user L10n will use is defiend in <code>config/database.yml</code>. The default
-              user name is <em>l10nadmin</em> and the default production database is called <em>l10n</em>.
+              The user L10n will use is defiend in
+              <a href="https://github.com/bvanderlaan/L10n/blob/master/config/database.yml"><code>config/database.yml</code></a>.
+              The default user name is <em>l10n</em> and the default production database is called <em>l10n_production</em>.
             </p>
             <div class="highlighter-rouge">
               <pre class="highlight">
                 <code>
-mysql&gt; grant all privileges on l10n.*
-        -&gt; to 'l10nadmin'@'localhost'
-        -&gt; identified by '*&lt;your l10nadmin user password&gt;*';
+mysql&gt; grant all privileges on l10n_production.*
+        -&gt; to 'l10n'@'localhost'
+        -&gt; identified by '*&lt;your l10n user password&gt;*';
                 </code>
               </pre>
             </div>
 
-            <p>At this point you can log out of mysql (remember your logged in as the root user) and log back in as the <em>l10nadmin</em> user.</p>
+            <p>At this point you can log out of mysql (remember your logged in as the root user) and log back in as the <em>l10n</em> user.</p>
 
             <div class="highlighter-rouge">
               <pre class="highlight">
                 <code>
 mysql&gt; exit;
-$ mysql -u l10nadmin -p
-Enter password: *&lt;your l10nadmin password&gt;*
+$ mysql -u l10n -p
+Enter password: *&lt;your l10n password&gt;*
                 </code>
               </pre>
             </div>
@@ -193,16 +201,43 @@ Enter password: *&lt;your l10nadmin password&gt;*
           </li>
           <li>
             <p>
+              Next you need to pre-compile the static assets.
+              Rails has an asset pipeline which allows you to use languages like TypeScript and SASS, languages which
+              are nicer to develop in but web browsers don't understand, then transplie them into JavaScript and CSS when
+              you release. In Development mode these assets are transpiled on the fly which is nice for develpoment but
+              you do take a performance hit. In production mode, the mode we have been setting L10n up to run in, we
+              want to transplie these assets once since they won't change.<br/>
+              This is a must step as this one time transpiling will place the assets in a different directory, a directory
+              L10n will look for in production mode that differs then when run in Develpoment mode. The point, if you don't
+              do this L10n won't be able to find the CSS, JavaScript, and Image files.<br/>
+              Luckally Rails has a tool to make this easy.<br/>
+              Back in a terminal execute the following <em>Rake</em> command.</br>
+              <code class="highlighter-rouge">$ RAILS_ENV=production rake assets:precompile</code>
+            </p>
+          </li>
+          <li>
+            <p>
               Lastly you can now start up the Rails server. There is no need to install a web server because Rails
               applications are self hosting via an in memory web server which comes with Rails. Simply execute the following
               command to start the L10n application.<br />
-              <code class="highlighter-rouge">$ RAILS_ENV=production rails server</code>
+              <code class="highlighter-rouge">$ RAILS_ENV=production RAILS_SERVE_STATIC_FILES true SECRET_KEY_BASE=auniquesecretkeyusedtoverifysecuredcookies DATABASE_URL=mysql2://yoursqlserver.local:3306/l10n_production rails server -p 3000 -b '0.0.0.0'</code>
             </p>
             <p>
-              By default it will host the website on port 3000.
-              You can optionally specify a different port using the <em>-p</em> argument.
+              L10n's default port (per Rails convension) is 3000 but you can change it via the <em>-p</em> arguemnt seen above.
             </p>
-            <p><code class="highlighter-rouge">$ RAILS_ENV=production rails server -p 8080</code></p>
+            <p>
+              The environment variables you set at the beginning of the above command get passed into the L10n app
+              which helps it to start up correctly.
+              <ul>
+                <li><strong>RAILS_ENV</strong> - This tells L10n (or rather Rails) to start up in the Production environment.</li>
+                <li><strong>RAILS_SERVE_STATIC_FILES</strong> - This tells L10n (or rather Rails) that you have pre-compiled your static assets.</li>
+                <li><strong>SECRET_KEY_BASE</strong> - L10n will use this 128 character key to verify the integrity of signed cookies. You can type in any key here you want or you can use <code>rake secret</code> to generate one. Its a secret though so Shhhh</li>
+                <li><strong>DATABASE_URL</strong> - This is the url L10n will use to connect to the database. Example: <code>mysql2://mysqlserver.local/somedatabase</code></li>
+              </ul>
+
+              There you go, now if you navigate to http://localhost:3000, or which ever port you used, on the server running
+              L10n you should see the L10n home page.
+            </p>
           </li>
         </ol>
 
