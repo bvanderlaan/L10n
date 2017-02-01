@@ -88,7 +88,25 @@
         <h2 id="whatyouget">What you get with L10n</h2>
         <p>When you setup a L10n server you get a database and an easy to use web based interface.</p>
 
-        <h2 id="installation">Installation</h2>
+        <h2 id="docker">L10n on Docker</h2>
+        <p>
+          There is a Docker image for L10n which allows you to spin up a L10n application quickly and easily.
+          You can even use <code>docker-compose</code> to build a virtual network with a MySQL backend and a
+          L10n front end running on different container.
+        </p>
+        <p>
+          The Docker-ised version of L10n only requires the setting of a few environment variables When
+          starting up the container.
+        </p>
+        <h3>Example of Docker command</h3>
+        <code>docker run -e SECRET_KEY_BASE=***** -e L10N_DATABASE=l10n_production L10N_DATABASE_USER=l10nadmin -e L10N_DATABASE_PASSWORD=**** -e DATABASE_URL=mysql2://l10ndbserver.local:3306/l10n_production l10n:latest</code>
+
+        <p>
+          For more infromation on how to use the Docker image to setup a L10n server see
+          <a href="https://github.com/bvanderlaan/L10n-Docker">L10n-Docker</a>.
+        </p>
+
+        <h2 id="installation">Manual Installation of L10n</h2>
         <p>
           L10n is a Ruby-on-Rails app which by default connects to a MySQL database. You can configure L10n to use a
           different SQL database if you so choose by updating the <code>config/database.yml</code> file.
