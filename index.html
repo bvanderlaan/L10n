@@ -101,10 +101,11 @@
         <h3>Example of Docker command</h3>
         <div class="highlighter-rouge">
           <pre class="highlight">
-            <code>docker run -e SECRET_KEY_BASE=***** -e L10N_DATABASE=l10n_production -e L10N_DATABASE_USER=l10nadmin -e L10N_DATABASE_PASSWORD=**** -e DATABASE_URL=mysql2://l10ndbserver.local:3306/l10n_production l10n:latest</code>
+            <code>
+docker run -e SECRET_KEY_BASE=***** -e L10N_DATABASE=l10n_production -e L10N_DATABASE_USER=l10nadmin -e L10N_DATABASE_PASSWORD=**** -e DATABASE_URL=mysql2://l10ndbserver.local:3306/l10n_production l10n:latest
+            </code>
           </pre>
         </div>
-        <br/>
         <h3>Example of Docker-Compose script</h3>
         <p>
           The above command still looks large but like I said you can use <code>docker-compose</code> to script it.
