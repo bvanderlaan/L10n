@@ -100,7 +100,7 @@ To install L10n from scratch you will need to have [Ruby-on-Rails 4](http://ruby
 
 ## Donations
 
-If you like Taranis and want to support it and other open source work that I do you can do so via [Gratipay](https://gratipay.com/~bvanderlaan/).
+If you like L10n and want to support it and other open source work that I do you can do so via [Gratipay](https://gratipay.com/~bvanderlaan/).
 
 [![Support via Gratipay](https://cdn.rawgit.com/gratipay/gratipay-badge/2.3.0/dist/gratipay.svg)](https://gratipay.com/~bvanderlaan/)
 
