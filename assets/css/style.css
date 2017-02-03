@@ -320,3 +320,7 @@ footer { width: 180px; position: fixed; left: 50%; margin-left: -530px; bottom: 
   max-width: 70%;
   padding-bottom: 20px;
 }
+
+#gratipay > img {
+  padding-bottom: 10px;
+}
