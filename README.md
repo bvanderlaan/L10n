@@ -2,7 +2,7 @@
 
 ![L10n](https://github.com/bvanderlaan/L10n/blob/master/app/assets/images/logo.png "L10n")
 
-L10n (pronounced Lion) is an on premises web application that allows you to store and search for known good string translations that you orginization has already translated.
+L10n (pronounced Lion) is an on premises web application that allows you to store and search for known good string translations that you organization has already translated.
 
 L10n allows you to search for and input phrases that have known good translations in multiple other languages so you can save the turn around time of getting phrases translated and vetted by reusing pre-translated and vetted phrases your organization has already used.
 
