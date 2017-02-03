@@ -53,7 +53,7 @@ To install L10n from scratch you will need to have [Ruby-on-Rails 4](http://ruby
 
 5. Now grant privileges to the user that L10n will use to interact with the database. The user L10n will use is defined in ```config/database.yml```. The default user name is *l10nadmin*. We will also setup three different databases for L10n to use, one for production (*l10n*), one for development (*l10n_development*), and one for testing (*l10n_test*).
 
-        mysql> grant all privileges on l10n.*
+        mysql> grant all privileges on l10n_production.*
             -> to 'l10nadmin'@'localhost'
        	    -> identified by '*<your l10nadmin user password>*';
 
@@ -93,10 +93,31 @@ To install L10n from scratch you will need to have [Ruby-on-Rails 4](http://ruby
     ```
     $ rails server -p 8080
     ```
-    This is also running by default in the Development environment. To start L10n in the production environment you need to set the <em>RAILS_ENV</em> variable.
-    ```
-    $ RAILS_ENV=production rails server -p 8080
-    ```
+9. The above will launch L10n in Development mode. To run L10n in the Production environment you need to first pre-compile the assets.
+   Rails has an asset pipeline which allows you to use languages like TypeScript and SASS, languages which are nicer to develop in but web browsers don't understand, then transpile them into JavaScript and CSS when you release.
+   In Development mode these assets are transpiled on the fly which is nice for development but you do take a performance hit.
+   For production mode we want to transpile these assets once since they won't change.
+
+   This is a must step for production mode as this one time transpiling will place the assets in a different directory, a directory L10n will look for in production mode that differs then when run in Development mode.
+   The point, if you don't do this L10n won't be able to find the CSS, JavaScript, and Image files.
+
+   Luckily Rails has a tool to make this easy.
+   Back in a terminal execute the following Rake command.
+   ```
+   $ RAILS_ENV=production rake assets:precompile
+   ```
+
+   Now you can start L10n in production mode.
+   ```
+   $ RAILS_ENV=production RAILS_SERVE_STATIC_FILES true SECRET_KEY_BASE=auniquesecretkeyusedtoverifysecuredcookies DATABASE_URL=mysql2://yoursqlserver.local:3306/l10n_production rails server -p 3000 -b '0.0.0.0'
+   ```
+
+   The environment variables you set at the beginning of the above command get passed into the L10n app which helps it to start up correctly.
+
+   * **RAILS_ENV** - This tells L10n (or rather Rails) to start up in the Production environment.
+   * **RAILS_SERVE_STATIC_FILES** - This tells L10n (or rather Rails) that you have pre-compiled your static assets.
+   * **SECRET_KEY_BASE** - L10n will use this 128 character key to verify the integrity of signed cookies. You can type in any key here you want or you can use rake secret to generate one. Its a secret though so Shhhh
+   * **DATABASE_URL** - This is the url L10n will use to connect to the database. Example: mysql2://mysqlserver.local/somedatabase
 
 ## Donations
 
