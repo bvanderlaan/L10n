@@ -98,6 +98,13 @@ To install L10n from scratch you will need to have [Ruby-on-Rails 4](http://ruby
     $ RAILS_ENV=production rails server -p 8080
     ```
 
+## Donations
+
+If you like Taranis and want to support it and other open source work that I do you can do so via [Gratipay](https://gratipay.com/~bvanderlaan/).
+
+[![Support via Gratipay](https://cdn.rawgit.com/gratipay/gratipay-badge/2.3.0/dist/gratipay.svg)](https://gratipay.com/~bvanderlaan/)
+
+
 ## Contributing
 
 Bug reports and pull requests are welcome on GitHub at https://github.com/bvanderlaan/L10n. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [Contributor Covenant](http://contributor-covenant.org) code of conduct.
